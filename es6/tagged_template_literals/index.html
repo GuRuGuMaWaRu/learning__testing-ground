@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .highlight {
+      background-color: #ffc600;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    function highlighter(strings, ...values) {
+      let updatedString = '';
+
+      strings.forEach((string, index) => {
+        updatedString += `${string} <span contenteditable class="highlight">${(values[index] || '')}</span>`;
+      });
+
+      return updatedString;
+    }
+    const dam = 'dam';
+    const bam = 'bam';
+
+    const sentence = highlighter`Duri di ${dam} and ${bam}`;
+
+    document.body.innerHTML = sentence;
+
+  </script>
+
+</body>
+
+</html>
